@@ -1,0 +1,24 @@
+{
+  "name": "lunar-calendar-database",
+  "version": "1.0.0",
+  "description": "农历数据库 ====",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "iconv-lite": "^0.6.0",
+    "moment": "^2.26.0",
+    "nedb": "^1.8.0",
+    "rxjs": "^6.5.5",
+    "typeorm": "^0.2.25"
+  },
+  "devDependencies": {
+    "@types/nedb": "^1.8.9",
+    "@types/node": "^14.0.12",
+    "typescript": "^3.9.5"
+  }
+}
