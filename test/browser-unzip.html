@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>公历 转 农历</title>
+</head>
+<body>
+  <fieldset>
+    <legend>公历转农历</legend>
+    <div id="app"></div>
+  </fieldset>
+  <script crossorigin src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+  <script crossorigin src="https://cdn.bootcdn.net/ajax/libs/pako/1.0.11/pako_inflate.min.js"></script>
+  <script type="text/babel">
+    const Catch = new Map();
+
+    ReactDOM.render(<App />, document.querySelector('#app'));
+
+    function App() {
+      const now = new Date();
+      const [year, setYear] = React.useState(now.getFullYear());
+      const [month, setMonth] = React.useState(now.getMonth() + 1);
+      const [date, setDate] = React.useState(now.getDate());
+      const [message, setMessage] = React.useState('');
+
+      React.useEffect(() => {
+        displaylunarMessage(year, month, date);
+      });
+
+      function handleSubmit(event) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+
+      function displaylunarMessage(year, month, date) {
+        new Promise((resolve) => {
+          const data = Catch.get(year);
+          if(data) {
+            resolve(data);
+          } else {
+            fetch(`/database/json/zip/${ year }.zip`)
+              .then(response => response.arrayBuffer())
+              .then(buffer => pako.inflate(buffer))
+              .then(inflated => new TextDecoder('utf-8').decode(inflated))
+              .then(json => JSON.parse(json))
+              .then(data => {
+                Catch.set(year, data);
+                resolve(data);
+              });
+          }
+        })
+        .then(data => {
+          return data.find(item => {
+            const { month: _month, date: _date } = item.gregorian;
+            if(_month === month && _date === date) {
+              return item;
+            }
+          });
+        })
+        .then(result => {
+          const { lunar, zodiac, day } = result;
+          setMessage(`农历 ${ lunar.year } ${ zodiac }年 ${ lunar.month }${ lunar.date }`);
+        })
+        .catch(err => {
+          console.error(err);
+          setMessage(`${ err.message }`);
+        });
+      }
+
+      return (
+        <div>
+          <form onSubmit={ handleSubmit }>
+            <label>
+              <select name="year" value={ year } onChange={ event => setYear(+event.target.value) }>
+                {
+                  Array.from({ length: 2100 - 1900 }).fill(undefined).map((_, index) => {
+                    return (<option value={ 2100 - index }>{ 2100 - index }</option>);
+                  })
+                }
+              </select>
+              <span>年</span>
+            </label>
+            <label>
+              <select name="month" value={ month } onChange={ event => setMonth(+event.target.value) }>
+                {
+                  Array.from({ length: 12 }).fill(undefined).map((_, index) => {
+                    return (<option value={ index + 1 }>{ index + 1 }</option>);
+                  })
+                }
+              </select>
+              <span>月</span>
+            </label>
+            <label>
+              <select name="date" value={ date } onChange={ event => setDate(+event.target.value) }>
+                {
+                  Array.from({ length: new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate() }).fill(undefined).map((_, index) => {
+                    return (<option value={ index + 1 }>{ index + 1 }</option>);
+                  })
+                }
+              </select>
+              <span>日</span>
+            </label>
+          </form>
+          <br />
+          <div>
+            {
+              message && <span>查询结果：{ message }</span>
+            }
+          </div>
+        </div>
+      );
+    }
+  </script>
+</body>
+</html>

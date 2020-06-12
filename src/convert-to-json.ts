@@ -1,6 +1,8 @@
 import fs from 'fs';
 import path from 'path';
+import zlib from 'zlib';
 import { GanZhi } from '../test/ganzhi';
+import { promisify } from 'util';
 
 const BASE_DIR = path.join(__dirname, '../database/origin');
 const OUTPUT_PATH = path.join(__dirname, '../database/json');
@@ -36,6 +38,21 @@ interface DateItem {
         encoding: 'utf-8',
       }
     );
+
+    await fs.promises.writeFile(
+      path.join(OUTPUT_PATH, `min`, `${ path.basename(file).split('.').slice(0, -1).join('.') }.min.json`),
+      JSON.stringify(dates),
+      {
+        encoding: 'utf-8',
+      }
+    );
+
+    const deflated = await promisify<zlib.InputType, Buffer>(zlib.deflate)(Buffer.from(JSON.stringify(dates)));
+    await fs.promises.writeFile(
+      path.join(OUTPUT_PATH, `zip`, `${ path.basename(file).split('.').slice(0, -1).join('.') }.zip`),
+      deflated,
+    );
+
   }
 
 }());

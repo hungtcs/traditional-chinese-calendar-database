@@ -5,13 +5,16 @@
 
 提供1901年至2100年的[公历]和[农历]日期对照，包含[二十四节气]、[星期]、[十二生肖]数据。
 
-### 使用方式
+### 数据格式
 
-#### 1. JSON源文件
+#### JSON源文件
+
+- database/json
+- database/json/min
 
 JSON数据以每年为一个独立的文件存储，内容格式为：
 ```typescript
-type JsonItem = Array<{
+{
   // 星期
   day: string,
   // 公历日期
@@ -32,10 +35,17 @@ type JsonItem = Array<{
   zodiac: string,
   // 节气
   solarTerm： string,
-}>
+}
 ```
 
-#### 2. JSON数据库（nedb）
+#### ZIP压缩的JSON源文件
+
+使用`zlib`压缩的json文件，适合在浏览器端使用，体积较小，单个文件大约3.6KB。
+
+浏览器端解压可使用[`pako`](https://github.com/nodeca/pako)库，
+例子请查看：[browser-unzip.html](./test/browser-unzip.html)
+
+#### JSON数据库（nedb）
 
 JSON数据库为NEDB数据库，请使用NEDB数据库读取，示例代码为：
 ```typescript
