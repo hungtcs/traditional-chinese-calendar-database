@@ -43,7 +43,7 @@ JSON数据以每年为一个独立的文件存储，内容格式为：
 使用`zlib`压缩的json文件，适合在浏览器端使用，体积较小，单个文件大约3.6KB。
 
 浏览器端解压可使用[`pako`](https://github.com/nodeca/pako)库，
-例子请查看：[browser-unzip.html](./test/browser-unzip.html)
+例子请查看：[browser-unzip.html](./examples/browser-unzip.html)
 
 #### JSON数据库（nedb）
 
