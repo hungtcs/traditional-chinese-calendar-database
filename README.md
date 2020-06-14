@@ -30,7 +30,7 @@ JSON数据以每年为一个独立的文件存储，内容格式为：
     date: string,
     // 是否閏月
     leapMonth: boolean,
-  }，
+  },
   // 生肖
   zodiac: string,
   // 节气
