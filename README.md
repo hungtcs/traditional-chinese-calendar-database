@@ -7,6 +7,10 @@
 
 ### 数据格式
 
+#### database/all.json.zip
+
+包含1901年到2100年的数据，使用zlib压缩，大小为639KB。
+
 #### JSON源文件
 
 - database/json
@@ -45,7 +49,7 @@ JSON数据以每年为一个独立的文件存储，内容格式为：
 浏览器端解压可使用[`pako`](https://github.com/nodeca/pako)库，
 例子请查看：[browser-unzip.html](./examples/browser-unzip.html)
 
-#### JSON数据库（nedb）
+#### JSON数据库（nedb）(不推荐)
 
 JSON数据库为NEDB数据库，请使用NEDB数据库读取，示例代码为：
 ```typescript

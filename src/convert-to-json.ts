@@ -26,34 +26,49 @@ interface DateItem {
 
 (async function() {
   const files = (await fs.promises.readdir(BASE_DIR)).map(file => path.join(BASE_DIR, file));
-  for(let file of files) {
-    const content = await fs.promises.readFile(file, { encoding: 'utf-8' });
 
-    const dates = parseOriginData(content);
+  // const dates = (await Promise.all(
+  //   files.map(async (file) => {
+  //     const content = await fs.promises.readFile(file, { encoding: 'utf-8' });
+  //     const dates = parseOriginData(content);
+  //     return dates;
+  //   }),
+  // )).flat();
+  // const deflated = await promisify<zlib.InputType, Buffer>(zlib.deflate)(Buffer.from(JSON.stringify(dates)));
+  // await fs.promises.writeFile(
+  //   path.join(__dirname, '../database/all.json.zip'),
+  //   deflated,
+  // );
 
-    await fs.promises.writeFile(
-      path.join(OUTPUT_PATH, `${ path.basename(file).split('.').slice(0, -1).join('.') }.json`),
-      JSON.stringify(dates, null, 2),
-      {
-        encoding: 'utf-8',
-      }
-    );
 
-    await fs.promises.writeFile(
-      path.join(OUTPUT_PATH, `min`, `${ path.basename(file).split('.').slice(0, -1).join('.') }.min.json`),
-      JSON.stringify(dates),
-      {
-        encoding: 'utf-8',
-      }
-    );
+  // for(let file of files) {
+  //   const content = await fs.promises.readFile(file, { encoding: 'utf-8' });
 
-    const deflated = await promisify<zlib.InputType, Buffer>(zlib.deflate)(Buffer.from(JSON.stringify(dates)));
-    await fs.promises.writeFile(
-      path.join(OUTPUT_PATH, `zip`, `${ path.basename(file).split('.').slice(0, -1).join('.') }.zip`),
-      deflated,
-    );
+  //   const dates = parseOriginData(content);
 
-  }
+  //   await fs.promises.writeFile(
+  //     path.join(OUTPUT_PATH, `${ path.basename(file).split('.').slice(0, -1).join('.') }.json`),
+  //     JSON.stringify(dates, null, 2),
+  //     {
+  //       encoding: 'utf-8',
+  //     }
+  //   );
+
+  //   await fs.promises.writeFile(
+  //     path.join(OUTPUT_PATH, `min`, `${ path.basename(file).split('.').slice(0, -1).join('.') }.min.json`),
+  //     JSON.stringify(dates),
+  //     {
+  //       encoding: 'utf-8',
+  //     }
+  //   );
+
+  //   const deflated = await promisify<zlib.InputType, Buffer>(zlib.deflate)(Buffer.from(JSON.stringify(dates)));
+  //   await fs.promises.writeFile(
+  //     path.join(OUTPUT_PATH, `zip`, `${ path.basename(file).split('.').slice(0, -1).join('.') }.zip`),
+  //     deflated,
+  //   );
+
+  // }
 
 }());
 
