@@ -38,7 +38,7 @@ JSON数据以每年为一个独立的文件存储，内容格式为：
   // 生肖
   zodiac: string,
   // 节气
-  solarTerm： string,
+  solarTerm: string,
 }
 ```
 

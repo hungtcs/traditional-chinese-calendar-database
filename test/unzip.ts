@@ -1,10 +1,15 @@
 import fs from 'fs';
 import zlib from 'zlib';
 import path from 'path';
-import { promisify } from 'util';
 
 (async function() {
-  const deflated = await fs.promises.readFile(path.join(__dirname, '../database/json/zip/1901.zip'));
-  const inflated = await promisify<zlib.InputType, Buffer>(zlib.inflate)(deflated);
-  console.log(JSON.parse(inflated.toString('utf-8')));
+
+  // fs.createReadStream(path.join(__dirname, '../database/all.csv.zip'))
+  //   .pipe(zlib.createGunzip())
+  //   .pipe(process.stdout);
+
+  // fs.createReadStream(path.join(__dirname, '../database/all.json.zip'))
+  //   .pipe(zlib.createGunzip())
+  //   .pipe(process.stdout);
+
 }());

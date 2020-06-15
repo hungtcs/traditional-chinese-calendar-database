@@ -3,6 +3,7 @@ import path from 'path';
 import zlib from 'zlib';
 import { GanZhi } from '../test/ganzhi';
 import { promisify } from 'util';
+import { Readable } from 'stream';
 
 const BASE_DIR = path.join(__dirname, '../database/origin');
 const OUTPUT_PATH = path.join(__dirname, '../database/json');
@@ -27,19 +28,17 @@ interface DateItem {
 (async function() {
   const files = (await fs.promises.readdir(BASE_DIR)).map(file => path.join(BASE_DIR, file));
 
-  // const dates = (await Promise.all(
-  //   files.map(async (file) => {
-  //     const content = await fs.promises.readFile(file, { encoding: 'utf-8' });
-  //     const dates = parseOriginData(content);
-  //     return dates;
-  //   }),
-  // )).flat();
-  // const deflated = await promisify<zlib.InputType, Buffer>(zlib.deflate)(Buffer.from(JSON.stringify(dates)));
-  // await fs.promises.writeFile(
-  //   path.join(__dirname, '../database/all.json.zip'),
-  //   deflated,
-  // );
+  const dates = (await Promise.all(
+    files.map(async (file) => {
+      const content = await fs.promises.readFile(file, { encoding: 'utf-8' });
+      const dates = parseOriginData(content);
+      return dates;
+    }),
+  )).flat();
 
+  Readable.from([JSON.stringify(dates)])
+    .pipe(zlib.createGzip({ level: 9 }))
+    .pipe(fs.createWriteStream(path.join(__dirname, '../database/all.json.zip')))
 
   // for(let file of files) {
   //   const content = await fs.promises.readFile(file, { encoding: 'utf-8' });
