@@ -5497,5 +5497,20 @@
       "leapMonth": false
     },
     "zodiac": "龍"
+  },
+  {
+    "day": "星期六",
+    "gregorian": {
+      "year": 1904,
+      "month": 12,
+      "date": 31
+    },
+    "lunar": {
+      "year": "甲辰",
+      "month": "十一月",
+      "date": "廿五",
+      "leapMonth": false
+    },
+    "zodiac": "龍"
   }
 ]

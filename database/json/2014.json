@@ -5482,5 +5482,20 @@
       "leapMonth": false
     },
     "zodiac": "馬"
+  },
+  {
+    "day": "星期三",
+    "gregorian": {
+      "year": 2014,
+      "month": 12,
+      "date": 31
+    },
+    "lunar": {
+      "year": "甲午",
+      "month": "十一月",
+      "date": "初十",
+      "leapMonth": false
+    },
+    "zodiac": "馬"
   }
 ]

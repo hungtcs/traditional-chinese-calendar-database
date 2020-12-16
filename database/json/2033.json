@@ -5482,5 +5482,20 @@
       "leapMonth": true
     },
     "zodiac": "牛"
+  },
+  {
+    "day": "星期六",
+    "gregorian": {
+      "year": 2033,
+      "month": 12,
+      "date": 31
+    },
+    "lunar": {
+      "year": "癸丑",
+      "month": "閏十一月",
+      "date": "初十",
+      "leapMonth": true
+    },
+    "zodiac": "牛"
   }
 ]

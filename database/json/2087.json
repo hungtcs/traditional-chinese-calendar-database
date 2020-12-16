@@ -5482,5 +5482,20 @@
       "leapMonth": false
     },
     "zodiac": "羊"
+  },
+  {
+    "day": "星期三",
+    "gregorian": {
+      "year": 2087,
+      "month": 12,
+      "date": 31
+    },
+    "lunar": {
+      "year": "丁未",
+      "month": "十二月",
+      "date": "初七",
+      "leapMonth": false
+    },
+    "zodiac": "羊"
   }
 ]

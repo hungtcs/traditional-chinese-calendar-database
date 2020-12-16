@@ -38,36 +38,39 @@ interface DateItem {
 
   Readable.from([JSON.stringify(dates)])
     .pipe(zlib.createGzip({ level: 9 }))
-    .pipe(fs.createWriteStream(path.join(__dirname, '../database/all.json.zip')))
+    .pipe(fs.createWriteStream(path.join(__dirname, '../database/all.json.zip')));
 
-  // for(let file of files) {
-  //   const content = await fs.promises.readFile(file, { encoding: 'utf-8' });
+  Readable.from([JSON.stringify(dates)])
+    .pipe(fs.createWriteStream(path.join(__dirname, '../database/all.json')));
 
-  //   const dates = parseOriginData(content);
+  for(let file of files) {
+    const content = await fs.promises.readFile(file, { encoding: 'utf-8' });
 
-  //   await fs.promises.writeFile(
-  //     path.join(OUTPUT_PATH, `${ path.basename(file).split('.').slice(0, -1).join('.') }.json`),
-  //     JSON.stringify(dates, null, 2),
-  //     {
-  //       encoding: 'utf-8',
-  //     }
-  //   );
+    const dates = parseOriginData(content);
 
-  //   await fs.promises.writeFile(
-  //     path.join(OUTPUT_PATH, `min`, `${ path.basename(file).split('.').slice(0, -1).join('.') }.min.json`),
-  //     JSON.stringify(dates),
-  //     {
-  //       encoding: 'utf-8',
-  //     }
-  //   );
+    await fs.promises.writeFile(
+      path.join(OUTPUT_PATH, `${ path.basename(file).split('.').slice(0, -1).join('.') }.json`),
+      JSON.stringify(dates, null, 2),
+      {
+        encoding: 'utf-8',
+      }
+    );
 
-  //   const deflated = await promisify<zlib.InputType, Buffer>(zlib.deflate)(Buffer.from(JSON.stringify(dates)));
-  //   await fs.promises.writeFile(
-  //     path.join(OUTPUT_PATH, `zip`, `${ path.basename(file).split('.').slice(0, -1).join('.') }.zip`),
-  //     deflated,
-  //   );
+    await fs.promises.writeFile(
+      path.join(OUTPUT_PATH, `min`, `${ path.basename(file).split('.').slice(0, -1).join('.') }.min.json`),
+      JSON.stringify(dates),
+      {
+        encoding: 'utf-8',
+      }
+    );
 
-  // }
+    const deflated = await promisify<zlib.InputType, Buffer>(zlib.deflate)(Buffer.from(JSON.stringify(dates)));
+    await fs.promises.writeFile(
+      path.join(OUTPUT_PATH, `zip`, `${ path.basename(file).split('.').slice(0, -1).join('.') }.zip`),
+      deflated,
+    );
+
+  }
 
 }());
 
@@ -79,8 +82,13 @@ function parseOriginData(content: string) {
   let runyue: boolean = false;
   let lunarMonth: string;
   let firstLunarMonth: string;
-  for(let index=2; index < lines.length - 1; index++) {
+  for(let index=2; index < lines.length; index++) {
     const line = lines[index];
+
+    if(/^香港於/.test(line)) {
+      continue;
+    }
+
     try {
       let { year, month, date, lunarDate, day, solarTerm } = line.match(/(?<year>(\d{4}))年(?<month>(\d{1,2}))月(?<date>(\d{1,2}))日\s+(?<lunarDate>(\S+))\s+(?<day>(\S+))(\s+)?(?<solarTerm>(\S+))?/).groups;
       month = month.replace(/^0*/, '');

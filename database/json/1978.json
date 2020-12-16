@@ -5482,5 +5482,20 @@
       "leapMonth": false
     },
     "zodiac": "馬"
+  },
+  {
+    "day": "星期日",
+    "gregorian": {
+      "year": 1978,
+      "month": 12,
+      "date": 31
+    },
+    "lunar": {
+      "year": "戊午",
+      "month": "十二月",
+      "date": "初二",
+      "leapMonth": false
+    },
+    "zodiac": "馬"
   }
 ]

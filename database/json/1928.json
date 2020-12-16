@@ -5497,5 +5497,20 @@
       "leapMonth": false
     },
     "zodiac": "龍"
+  },
+  {
+    "day": "星期一",
+    "gregorian": {
+      "year": 1928,
+      "month": 12,
+      "date": 31
+    },
+    "lunar": {
+      "year": "戊辰",
+      "month": "十一月",
+      "date": "二十",
+      "leapMonth": false
+    },
+    "zodiac": "龍"
   }
 ]

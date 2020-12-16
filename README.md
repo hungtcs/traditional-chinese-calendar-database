@@ -49,21 +49,6 @@ JSON数据以每年为一个独立的文件存储，内容格式为：
 浏览器端解压可使用[`pako`](https://github.com/nodeca/pako)库，
 例子请查看：[browser-unzip.html](./examples/browser-unzip.html)
 
-#### JSON数据库（nedb）(不推荐)
-
-JSON数据库为NEDB数据库，请使用NEDB数据库读取，示例代码为：
-```typescript
-const database = new Datastore({ filename: 'path/to/default.json' });
-await promisify(database.loadDatabase.bind(database))();
-const result = await promisify(database.find.bind(database))({
-  'gregorian.year': 2020,
-  'gregorian.month': 6,
-  'gregorian.date': 12,
-});
-console.log(result);
-```
-
-
 [星期]: https://zh.wikipedia.org/wiki/%E6%98%9F%E6%9C%9F
 [公历]: https://zh.wikipedia.org/wiki/%E6%A0%BC%E9%87%8C%E6%9B%86
 [农历]: https://zh.wikipedia.org/zh/%E8%BE%B2%E6%9B%86

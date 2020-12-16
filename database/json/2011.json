@@ -5482,5 +5482,20 @@
       "leapMonth": false
     },
     "zodiac": "兔"
+  },
+  {
+    "day": "星期六",
+    "gregorian": {
+      "year": 2011,
+      "month": 12,
+      "date": 31
+    },
+    "lunar": {
+      "year": "辛卯",
+      "month": "十二月",
+      "date": "初七",
+      "leapMonth": false
+    },
+    "zodiac": "兔"
   }
 ]

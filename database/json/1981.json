@@ -5482,5 +5482,20 @@
       "leapMonth": false
     },
     "zodiac": "雞"
+  },
+  {
+    "day": "星期四",
+    "gregorian": {
+      "year": 1981,
+      "month": 12,
+      "date": 31
+    },
+    "lunar": {
+      "year": "辛酉",
+      "month": "十二月",
+      "date": "初六",
+      "leapMonth": false
+    },
+    "zodiac": "雞"
   }
 ]

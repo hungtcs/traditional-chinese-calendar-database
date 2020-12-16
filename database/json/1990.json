@@ -5482,5 +5482,20 @@
       "leapMonth": false
     },
     "zodiac": "馬"
+  },
+  {
+    "day": "星期一",
+    "gregorian": {
+      "year": 1990,
+      "month": 12,
+      "date": 31
+    },
+    "lunar": {
+      "year": "庚午",
+      "month": "十一月",
+      "date": "十五",
+      "leapMonth": false
+    },
+    "zodiac": "馬"
   }
 ]

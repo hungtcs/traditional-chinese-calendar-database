@@ -5482,5 +5482,20 @@
       "leapMonth": false
     },
     "zodiac": "馬"
+  },
+  {
+    "day": "星期二",
+    "gregorian": {
+      "year": 2002,
+      "month": 12,
+      "date": 31
+    },
+    "lunar": {
+      "year": "壬午",
+      "month": "十一月",
+      "date": "廿八",
+      "leapMonth": false
+    },
+    "zodiac": "馬"
   }
 ]

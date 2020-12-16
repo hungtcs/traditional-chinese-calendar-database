@@ -5497,5 +5497,20 @@
       "leapMonth": false
     },
     "zodiac": "龍"
+  },
+  {
+    "day": "星期六",
+    "gregorian": {
+      "year": 2072,
+      "month": 12,
+      "date": 31
+    },
+    "lunar": {
+      "year": "壬辰",
+      "month": "十一月",
+      "date": "廿二",
+      "leapMonth": false
+    },
+    "zodiac": "龍"
   }
 ]

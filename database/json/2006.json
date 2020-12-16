@@ -5448,5 +5448,20 @@
       "leapMonth": false
     },
     "zodiac": "犬"
+  },
+  {
+    "day": "星期日",
+    "gregorian": {
+      "year": 2006,
+      "month": 12,
+      "date": 31
+    },
+    "lunar": {
+      "year": "丙戌",
+      "month": "十一月",
+      "date": "十二",
+      "leapMonth": false
+    },
+    "zodiac": "犬"
   }
 ]

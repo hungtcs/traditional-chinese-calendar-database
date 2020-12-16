@@ -5497,5 +5497,20 @@
       "leapMonth": false
     },
     "zodiac": "猴"
+  },
+  {
+    "day": "星期三",
+    "gregorian": {
+      "year": 1980,
+      "month": 12,
+      "date": 31
+    },
+    "lunar": {
+      "year": "庚申",
+      "month": "十一月",
+      "date": "廿五",
+      "leapMonth": false
+    },
+    "zodiac": "猴"
   }
 ]

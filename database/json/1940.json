@@ -5497,5 +5497,20 @@
       "leapMonth": false
     },
     "zodiac": "龍"
+  },
+  {
+    "day": "星期二",
+    "gregorian": {
+      "year": 1940,
+      "month": 12,
+      "date": 31
+    },
+    "lunar": {
+      "year": "庚辰",
+      "month": "十二月",
+      "date": "初三",
+      "leapMonth": false
+    },
+    "zodiac": "龍"
   }
 ]

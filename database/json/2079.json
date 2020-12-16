@@ -5482,5 +5482,20 @@
       "leapMonth": false
     },
     "zodiac": "豬"
+  },
+  {
+    "day": "星期日",
+    "gregorian": {
+      "year": 2079,
+      "month": 12,
+      "date": 31
+    },
+    "lunar": {
+      "year": "己亥",
+      "month": "十二月",
+      "date": "初九",
+      "leapMonth": false
+    },
+    "zodiac": "豬"
   }
 ]

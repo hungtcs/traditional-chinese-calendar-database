@@ -5497,5 +5497,20 @@
       "leapMonth": false
     },
     "zodiac": "猴"
+  },
+  {
+    "day": "星期四",
+    "gregorian": {
+      "year": 2076,
+      "month": 12,
+      "date": 31
+    },
+    "lunar": {
+      "year": "丙申",
+      "month": "十二月",
+      "date": "初六",
+      "leapMonth": false
+    },
+    "zodiac": "猴"
   }
 ]

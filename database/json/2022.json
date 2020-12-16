@@ -5482,5 +5482,20 @@
       "leapMonth": false
     },
     "zodiac": "虎"
+  },
+  {
+    "day": "星期六",
+    "gregorian": {
+      "year": 2022,
+      "month": 12,
+      "date": 31
+    },
+    "lunar": {
+      "year": "壬寅",
+      "month": "十二月",
+      "date": "初九",
+      "leapMonth": false
+    },
+    "zodiac": "虎"
   }
 ]

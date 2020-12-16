@@ -5497,5 +5497,20 @@
       "leapMonth": false
     },
     "zodiac": "龍"
+  },
+  {
+    "day": "星期日",
+    "gregorian": {
+      "year": 2000,
+      "month": 12,
+      "date": 31
+    },
+    "lunar": {
+      "year": "庚辰",
+      "month": "十二月",
+      "date": "初六",
+      "leapMonth": false
+    },
+    "zodiac": "龍"
   }
 ]

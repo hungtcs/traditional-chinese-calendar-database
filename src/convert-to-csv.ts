@@ -46,9 +46,13 @@ interface DateItem {
   };
 
   fromArray(dates)
-  .pipe(stringify({ header: true }))
-  .pipe(zlib.createGzip({ level: 9 }))
-  .pipe(fs.createWriteStream(path.join(__dirname, '../database/all.csv.zip')));
+    .pipe(stringify({ header: true }))
+    .pipe(fs.createWriteStream(path.join(__dirname, '../database/all.csv')));
+
+  fromArray(dates)
+    .pipe(stringify({ header: true }))
+    .pipe(zlib.createGzip({ level: 9 }))
+    .pipe(fs.createWriteStream(path.join(__dirname, '../database/all.csv.zip')));
 
 }());
 
@@ -60,8 +64,13 @@ function parseOriginData(content: string) {
   let runyue: boolean = false;
   let lunarMonth: string;
   let firstLunarMonth: string;
-  for(let index=2; index < lines.length - 1; index++) {
+  for(let index=2; index < lines.length; index++) {
     const line = lines[index];
+
+    if(/^香港於/.test(line)) {
+      continue;
+    }
+
     try {
       let { year, month, date, lunarDate, day, solarTerm } = line.match(/(?<year>(\d{4}))年(?<month>(\d{1,2}))月(?<date>(\d{1,2}))日\s+(?<lunarDate>(\S+))\s+(?<day>(\S+))(\s+)?(?<solarTerm>(\S+))?/).groups;
       month = month.replace(/^0*/, '');

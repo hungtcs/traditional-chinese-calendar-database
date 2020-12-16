@@ -1,26 +1,24 @@
 {
   "name": "lunar-calendar-database",
   "version": "1.0.0",
-  "description": "农历数据库 ====",
-  "main": "index.js",
+  "description": "农历数据库",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "convert:csv": "ts-node src/convert-to-csv.ts",
+    "convert:json": "ts-node src/convert-to-json.ts"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "鸿则 <hungtcs@outlook.com>",
+  "license": "MIT",
   "dependencies": {
     "axios": "^0.19.2",
     "csv-generate": "^3.2.4",
     "csv-stringify": "^5.5.0",
     "iconv-lite": "^0.6.0",
     "moment": "^2.26.0",
-    "nedb": "^1.8.0",
-    "rxjs": "^6.5.5",
-    "typeorm": "^0.2.25"
+    "rxjs": "^6.5.5"
   },
   "devDependencies": {
-    "@types/nedb": "^1.8.9",
     "@types/node": "^14.0.12",
+    "ts-node": "^9.1.1",
     "typescript": "^3.9.5"
   }
 }

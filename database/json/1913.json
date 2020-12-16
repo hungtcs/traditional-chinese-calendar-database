@@ -5482,5 +5482,20 @@
       "leapMonth": false
     },
     "zodiac": "牛"
+  },
+  {
+    "day": "星期三",
+    "gregorian": {
+      "year": 1913,
+      "month": 12,
+      "date": 31
+    },
+    "lunar": {
+      "year": "癸丑",
+      "month": "十二月",
+      "date": "初五",
+      "leapMonth": false
+    },
+    "zodiac": "牛"
   }
 ]

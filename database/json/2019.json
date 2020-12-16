@@ -5482,5 +5482,20 @@
       "leapMonth": false
     },
     "zodiac": "豬"
+  },
+  {
+    "day": "星期二",
+    "gregorian": {
+      "year": 2019,
+      "month": 12,
+      "date": 31
+    },
+    "lunar": {
+      "year": "己亥",
+      "month": "十二月",
+      "date": "初六",
+      "leapMonth": false
+    },
+    "zodiac": "豬"
   }
 ]

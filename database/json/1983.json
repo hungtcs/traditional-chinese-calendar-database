@@ -5482,5 +5482,20 @@
       "leapMonth": false
     },
     "zodiac": "豬"
+  },
+  {
+    "day": "星期六",
+    "gregorian": {
+      "year": 1983,
+      "month": 12,
+      "date": 31
+    },
+    "lunar": {
+      "year": "癸亥",
+      "month": "十一月",
+      "date": "廿八",
+      "leapMonth": false
+    },
+    "zodiac": "豬"
   }
 ]

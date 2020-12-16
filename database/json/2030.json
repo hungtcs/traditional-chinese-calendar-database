@@ -5482,5 +5482,20 @@
       "leapMonth": false
     },
     "zodiac": "狗"
+  },
+  {
+    "day": "星期二",
+    "gregorian": {
+      "year": 2030,
+      "month": 12,
+      "date": 31
+    },
+    "lunar": {
+      "year": "庚戌",
+      "month": "十二月",
+      "date": "初七",
+      "leapMonth": false
+    },
+    "zodiac": "狗"
   }
 ]

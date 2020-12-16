@@ -5482,5 +5482,20 @@
       "leapMonth": false
     },
     "zodiac": "虎"
+  },
+  {
+    "day": "星期三",
+    "gregorian": {
+      "year": 1902,
+      "month": 12,
+      "date": 31
+    },
+    "lunar": {
+      "year": "壬寅",
+      "month": "十二月",
+      "date": "初二",
+      "leapMonth": false
+    },
+    "zodiac": "虎"
   }
 ]
