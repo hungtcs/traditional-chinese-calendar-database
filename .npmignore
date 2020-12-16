@@ -1,0 +1,4 @@
+databases/
+node_modules/
+src/
+test/

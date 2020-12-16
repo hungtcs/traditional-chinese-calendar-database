@@ -4,7 +4,8 @@
   "description": "农历数据库",
   "scripts": {
     "convert:csv": "ts-node src/convert-to-csv.ts",
-    "convert:json": "ts-node src/convert-to-json.ts"
+    "convert:json": "ts-node src/convert-to-json.ts",
+    "convert:binary": "ts-node src/convert-to-binary.ts"
   },
   "author": "鸿则 <hungtcs@outlook.com>",
   "license": "MIT",
