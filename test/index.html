@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script src="../dist/index.js"></script>
+  <script>
+    const { Database } = TraditionalChineseCalendarDatabase;
+    const database = new Database();
+    console.log(database);
+    database.load('../database/all.bin')
+      .then(data => {
+        database.find({ year: 2020, date: 19, month: 2 }).forEach(item => console.log(item.toString()));
+      });
+  </script>
+</body>
+</html>

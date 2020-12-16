@@ -1,25 +1,48 @@
 {
-  "name": "lunar-calendar-database",
-  "version": "1.0.0",
-  "description": "农历数据库",
+  "name": "traditional-chinese-calendar-database",
+  "version": "0.0.1",
+  "description": "中国农历数据库 1901～2100年",
   "scripts": {
-    "convert:csv": "ts-node src/convert-to-csv.ts",
-    "convert:json": "ts-node src/convert-to-json.ts",
-    "convert:binary": "ts-node src/convert-to-binary.ts"
+    "start": "webpack --mode=development --devtool=source-map --watch",
+    "build": "webpack --mode=production",
+    "prepublish": "npm run build",
+    "convert:csv": "ts-node scripts/convert-to-csv.ts",
+    "convert:json": "ts-node scripts/convert-to-json.ts",
+    "convert:binary": "ts-node scripts/convert-to-binary.ts"
   },
   "author": "鸿则 <hungtcs@outlook.com>",
   "license": "MIT",
-  "dependencies": {
-    "axios": "^0.19.2",
-    "csv-generate": "^3.2.4",
-    "csv-stringify": "^5.5.0",
-    "iconv-lite": "^0.6.0",
-    "moment": "^2.26.0",
-    "rxjs": "^6.5.5"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "@types/node": "^14.0.12",
+    "@types/node": "^14.14.14",
+    "@types/webpack": "^4.41.25",
+    "@types/webpack-env": "^1.16.0",
+    "axios": "^0.19.2",
+    "clean-webpack-plugin": "^3.0.0",
+    "csv-generate": "^3.3.0",
+    "csv-stringify": "^5.5.3",
+    "iconv-lite": "^0.6.2",
+    "moment": "^2.29.1",
+    "rxjs": "^6.6.3",
+    "ts-loader": "^8.0.12",
     "ts-node": "^9.1.1",
-    "typescript": "^3.9.5"
-  }
+    "typescript": "^3.9.5",
+    "webpack": "^5.10.3",
+    "webpack-cli": "^4.2.0"
+  },
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hungtcs/traditional-chinese-calendar-database.git"
+  },
+  "keywords": [
+    "chinese-calendar",
+    "lunar-calendar",
+    "calendar",
+    "lunar"
+  ],
+  "bugs": {
+    "url": "https://github.com/hungtcs/traditional-chinese-calendar-database/issues"
+  },
+  "homepage": "https://github.com/hungtcs/traditional-chinese-calendar-database#readme"
 }

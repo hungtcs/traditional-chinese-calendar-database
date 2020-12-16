@@ -1,4 +1,6 @@
-databases/
 node_modules/
-src/
+databases/
 test/
+scripts/
+examples/
+src/

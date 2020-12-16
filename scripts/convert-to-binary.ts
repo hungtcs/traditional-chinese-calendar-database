@@ -23,11 +23,12 @@ for(let i=1901; i<=2100; i++) {
   data.forEach(item => {
     const { gregorian, lunar, solarTerm } = item;
     const [ gan, zhi ] = lunar.year;
+    const lunarMonth = lunar.month.startsWith('閏') ? lunar.month.substr(1) : lunar.month;
     newData.push(
       gregorian.year - 1900,
       (gregorian.month << 4) + (gregorian.date >>> 1),
       (gregorian.date << 7) + (TIAN_GAN.indexOf(gan) << 3) + (DI_ZHI.indexOf(zhi) >>> 1),
-      (DI_ZHI.indexOf(zhi) << 7) + ((MONTHS.indexOf(lunar.month) + 1) << 3) + ((DATES.indexOf(lunar.date) + 1) >>> 2),
+      (DI_ZHI.indexOf(zhi) << 7) + ((MONTHS.indexOf(lunarMonth) + 1) << 3) + ((DATES.indexOf(lunar.date) + 1) >>> 2),
       ((DATES.indexOf(lunar.date) + 1) << 6) + ((lunar.leapMonth ? 1 : 0) << 5) + (JIE_QI.indexOf(solarTerm) + 1),
     );
   });
