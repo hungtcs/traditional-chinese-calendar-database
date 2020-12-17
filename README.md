@@ -23,7 +23,7 @@
 </script>
 ```
 
-[示例](./examples/index.html)
+[示例](https://hungtcs.github.io/traditional-chinese-calendar-database/examples/index.html)
 
 ### 数据格式
 
