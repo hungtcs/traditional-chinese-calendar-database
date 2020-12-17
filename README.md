@@ -5,6 +5,26 @@
 
 提供1901年至2100年的[公历]和[农历]日期对照，包含[二十四节气]、[星期]、[十二生肖]数据。
 
+### 使用方式
+```html
+<main id="content"></main>
+<section id="json"></section>
+<script src="../dist/index.esm.js" type="module"></script>
+<script type="module">
+  import { Database } from '../dist/index.esm.js';
+  const database = new Database();
+  database.load('../database/all.bin')
+    .then(data => {
+      const now = new Date();
+      const date = database.getCompoundDate(now.getFullYear(), now.getMonth() + 1, now.getDate());
+      document.querySelector('#content').innerHTML = `今天是：${ date.toString() }`;
+      document.querySelector('#json').innerHTML = `<pre>${ JSON.stringify(date, null, 2) }</pre>`;
+    });
+</script>
+```
+
+[示例](./examples/index.html)
+
 ### 数据格式
 
 #### database/all.json.zip

@@ -1,12 +1,9 @@
 import fs from 'fs';
 import path from 'path';
 import zlib from 'zlib';
-import generate from 'csv-generate';
 import stringify from 'csv-stringify';
-import { GanZhi } from '../test/ganzhi';
-import { promisify } from 'util';
-import { stdout } from 'process';
-import { pipeline, Readable } from 'stream';
+import { GanZhi } from './ganzhi';
+import { Readable } from 'stream';
 
 const BASE_DIR = path.join(__dirname, '../database/origin');
 

@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import zlib from 'zlib';
-import { GanZhi } from '../test/ganzhi';
+import { GanZhi } from './ganzhi';
 import { promisify } from 'util';
 import { Readable } from 'stream';
 

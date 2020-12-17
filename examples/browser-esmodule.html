@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <main id="content"></main>
+  <section id="json"></section>
+  <script src="../dist/index.esm.js" type="module"></script>
+  <script type="module">
+    import { Database } from '../dist/index.esm.js';
+    const database = new Database();
+    database.load('../database/all.bin')
+      .then(data => {
+        const now = new Date();
+        const date = database.getCompoundDate(now.getFullYear(), now.getMonth() + 1, now.getDate());
+        document.querySelector('#content').innerHTML = `今天是：${ date.toString() }`;
+        document.querySelector('#json').innerHTML = `<pre>${ JSON.stringify(date, null, 2) }</pre>`;
+      });
+  </script>
+</body>
+</html>

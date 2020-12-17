@@ -1,6 +1,9 @@
 node_modules/
-databases/
+coverage/
 test/
 scripts/
 examples/
 src/
+
+databases/
+!databases/all.bin
