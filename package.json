@@ -1,6 +1,6 @@
 {
   "name": "traditional-chinese-calendar-database",
-  "version": "0.0.1",
+  "version": "0.0.2-1",
   "description": "中国农历数据库 1901～2100年",
   "scripts": {
     "start": "rollup --config=rollup.config.dev.js --watch",
