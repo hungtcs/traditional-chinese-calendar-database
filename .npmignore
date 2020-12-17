@@ -5,5 +5,12 @@ scripts/
 examples/
 src/
 
-databases/
-!databases/all.bin
+database/**/*
+!database/all.bin
+
+.editorconfig
+.github
+jest.config.ts
+rollup.config.dev.js
+rollup.config.prod.js
+tsconfig.spec.json
