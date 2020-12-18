@@ -10,6 +10,13 @@ describe('Database', () => {
     done();
   });
 
+  it('未指定加载位置时使用默认值', async (done) => {
+    const database = new Database();
+    await database.load();
+    expect(database.loaded).toBe(true);
+    done();
+  });
+
   it('database should be loaded', () => {
     expect(database.loaded).toBe(true);
   });

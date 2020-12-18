@@ -9,7 +9,7 @@ export declare class Database {
     private compoundDates;
     private get arrayBuffer();
     private set arrayBuffer(value);
-    load(binary: string, options?: DatabaseLoadOptions): Promise<ArrayBuffer>;
+    load(binary?: string, options?: DatabaseLoadOptions): Promise<ArrayBuffer>;
     getCompoundDate(year: number, month: number, date: number): CompoundDate;
     find(condition: FindCondition | ((date: CompoundDate) => boolean)): CompoundDate[];
     private slice;

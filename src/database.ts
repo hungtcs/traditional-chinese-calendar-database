@@ -19,19 +19,20 @@ export class Database {
   };
   private set arrayBuffer(buffer) { this._arrayBuffer = buffer; }
 
-  public async load(binary: string, options: DatabaseLoadOptions = {}): Promise<ArrayBuffer> {
+  public async load(binary?: string, options: DatabaseLoadOptions = {}): Promise<ArrayBuffer> {
     const isNodeJS = typeof process !== 'undefined' && process.versions != null && process.versions.node != null;
     let arrayBuffer: ArrayBuffer;
     if(isNodeJS) {
       const fs = require('fs');
-      const buffer: Buffer = await fs.promises.readFile(binary);
+      const path = require('path');
+      const buffer: Buffer = await fs.promises.readFile(binary ?? path.join(__dirname, '../database/all.bin'));
       arrayBuffer = new ArrayBuffer(buffer.length);
       const view = new Uint8Array(arrayBuffer);
       for(let i = 0, length = buffer.length; i < length; i++) {
         view[i] = buffer[i];
       }
     } else {
-      const response = await fetch(binary)
+      const response = await fetch(binary ?? 'all.bin')
       arrayBuffer = await response.arrayBuffer();
     }
     this.arrayBuffer = arrayBuffer;

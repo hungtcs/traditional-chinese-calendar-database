@@ -27,7 +27,11 @@ export default {
         'dist/**'
       ],
     }),
-    terser(),
+    terser({
+      format: {
+        comments: false,
+      },
+    }),
     typescript({
       tsconfig: 'tsconfig.lib.json',
     }),
