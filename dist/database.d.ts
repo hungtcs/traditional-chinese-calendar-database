@@ -5,13 +5,13 @@ export interface DatabaseLoadOptions {
 }
 export declare class Database {
     loaded: boolean;
-    private _arrayBuffer;
-    private compoundDates;
-    private get arrayBuffer();
-    private set arrayBuffer(value);
+    protected _arrayBuffer: ArrayBuffer | null;
+    protected compoundDates: Array<CompoundDate>;
+    protected get arrayBuffer(): ArrayBuffer;
+    protected set arrayBuffer(buffer: ArrayBuffer);
     load(binary?: string, options?: DatabaseLoadOptions): Promise<ArrayBuffer>;
     getCompoundDate(year: number, month: number, date: number): CompoundDate;
     find(condition: FindCondition | ((date: CompoundDate) => boolean)): CompoundDate[];
-    private slice;
+    protected slice(offset: number): CompoundDate;
     parseAll(): void;
 }

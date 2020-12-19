@@ -7,17 +7,17 @@ export interface DatabaseLoadOptions {
 
 export class Database {
   public loaded: boolean = false;
-  private _arrayBuffer: ArrayBuffer | null = null;
-  private compoundDates: Array<CompoundDate> = [];
+  protected _arrayBuffer: ArrayBuffer | null = null;
+  protected compoundDates: Array<CompoundDate> = [];
 
-  private get arrayBuffer() {
+  protected get arrayBuffer() {
     if(this.loaded) {
       return this._arrayBuffer;
     } else {
       throw new Error('please call load function before getting buffer');
     }
   };
-  private set arrayBuffer(buffer) { this._arrayBuffer = buffer; }
+  protected set arrayBuffer(buffer) { this._arrayBuffer = buffer; }
 
   public async load(binary?: string, options: DatabaseLoadOptions = {}): Promise<ArrayBuffer> {
     const isNodeJS = typeof process !== 'undefined' && process.versions != null && process.versions.node != null;
@@ -56,7 +56,7 @@ export class Database {
     }
   }
 
-  private slice(offset: number) {
+  protected slice(offset: number) {
     const dataView = new DataView(this.arrayBuffer, offset, 5);
     const [byte0, byte1, byte2, byte3, byte4] = [dataView.getUint8(0), dataView.getUint8(1), dataView.getUint8(2), dataView.getUint8(3), dataView.getUint8(4)];
     return new CompoundDate(
