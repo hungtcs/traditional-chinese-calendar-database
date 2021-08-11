@@ -74,4 +74,4 @@ JSON数据以每年为一个独立的文件存储，内容格式为：
 [农历]: https://zh.wikipedia.org/zh/%E8%BE%B2%E6%9B%86
 [十二生肖]: https://zh.wikipedia.org/wiki/%E7%94%9F%E8%82%96
 [二十四节气]: https://zh.wikipedia.org/wiki/%E8%8A%82%E6%B0%94
-[香港天文台]: https://www.hko.gov.hk/tc/index.html
+[香港天文台]: https://www.hko.gov.hk/tc/gts/time/conversion.htm
