@@ -7,7 +7,7 @@
 
 ---
 
-[database/origin](database/origin) 文件夹内是原始数据，可以根据自己的需求进行解析、转换。
+JSON文件由 [database/origin](database/origin) 中的文本文件解析转换来的，转换之后的数据我没有仔细校验，如果发现数据不准确，可以自己对原文件进行转换。
 
 ---
 
